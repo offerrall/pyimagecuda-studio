@@ -1,4 +1,4 @@
-# PyImageCUDA Studio
+# PyImageCUDA Studio 0.1.0 Beta
 
 [![Version](https://img.shields.io/badge/version-0.1.0%20beta-blue.svg)](https://github.com/offerrall/pyimagecuda-studio)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
