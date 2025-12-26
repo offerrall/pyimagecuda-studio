@@ -1,5 +1,6 @@
 # PyImageCUDA Studio 0.1.0 Beta
 
+[![PyPI version](https://img.shields.io/pypi/v/pyimagecuda.svg)](https://pypi.org/project/pyimagecuda-studio/)
 [![Version](https://img.shields.io/badge/version-0.1.0%20beta-blue.svg)](https://github.com/offerrall/pyimagecuda-studio)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![CUDA](https://img.shields.io/badge/NVIDIA-CUDA-76B900.svg?logo=nvidia)](https://developer.nvidia.com/cuda-zone)
