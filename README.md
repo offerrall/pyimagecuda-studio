@@ -14,6 +14,9 @@ Core is [PyImageCUDA](https://github.com/offerrall/pyimagecuda), my custom CUDA 
 
 Dependencies only for UI (PySide6), I/O (PyVips), and preview (PyOpenGL), no CUDA Toolkit required (just NVIDIA drivers).
 
+https://github.com/user-attachments/assets/6a0ab3da-d961-4587-a67c-7d290a008017
+
+https://github.com/user-attachments/assets/f5c6a81d-5741-40e0-ad55-86a171a8aaa4
 
 ---
 
