@@ -1,0 +1,113 @@
+{
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "ea70c795414d49409d134fcd6ff201b2",
+      "type": "EndNode",
+      "name": "Output",
+      "position": {
+        "x": 429.0,
+        "y": 79.0
+      },
+      "parameters": {}
+    },
+    {
+      "id": "ff63f06419a34a0ebbcccff9621c1626",
+      "type": "CheckerboardNode",
+      "name": "Checkerboard",
+      "position": {
+        "x": -336.0,
+        "y": 85.0
+      },
+      "parameters": {
+        "size": [
+          1920,
+          1080
+        ],
+        "cell_size": 50,
+        "color_1": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "color_2": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "offset_x": 0,
+        "offset_y": 0,
+        "hide_node": false
+      }
+    },
+    {
+      "id": "f7718fcc61664cc0aae2d81fe4458c49",
+      "type": "RoundedCornersNode",
+      "name": "Rounded Corners",
+      "position": {
+        "x": 72.0,
+        "y": 15.0
+      },
+      "parameters": {
+        "radius": 596.0,
+        "hide_node": false
+      }
+    },
+    {
+      "id": "310609506ed841fe83140ec883506498",
+      "type": "NodeSplit",
+      "name": "Split",
+      "position": {
+        "x": -128.0,
+        "y": 129.0
+      },
+      "parameters": {}
+    },
+    {
+      "id": "5a92cf4931d941b390eb239a066f2c0b",
+      "type": "RandomOutNode",
+      "name": "Random Out",
+      "position": {
+        "x": 207.0,
+        "y": 136.0
+      },
+      "parameters": {
+        "input_1_probability": 0.5
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source_id": "ff63f06419a34a0ebbcccff9621c1626",
+      "target_id": "310609506ed841fe83140ec883506498",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "f7718fcc61664cc0aae2d81fe4458c49",
+      "target_id": "5a92cf4931d941b390eb239a066f2c0b",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "310609506ed841fe83140ec883506498",
+      "target_id": "f7718fcc61664cc0aae2d81fe4458c49",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "310609506ed841fe83140ec883506498",
+      "target_id": "5a92cf4931d941b390eb239a066f2c0b",
+      "source_port": 2,
+      "target_port": 2
+    },
+    {
+      "source_id": "5a92cf4931d941b390eb239a066f2c0b",
+      "target_id": "ea70c795414d49409d134fcd6ff201b2",
+      "source_port": 1,
+      "target_port": 1
+    }
+  ]
+}

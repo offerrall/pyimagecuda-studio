@@ -1,0 +1,19 @@
+
+# BUGS
+- SIEMPRE HAY MANO DE MOVER EN NODO EDITOR
+
+# FACIL POR METER:
+
+# Meter pero lleva tiempo
+- Arenas de memoria para los buffers temporales
+
+# pyimagecuda:
+- añadir invert mask
+- Valorar si es posible que sea mejor limitar el tamaño del buffer por la suma de sus dimensiones en vez de invidualmente
+- meter zoom como efecto
+
+# no se si lo metere
+- NO RENDERIZAR SI OUT NO TIENE CONECTADO NADA O SI NO RECIBIRA NADA
+- CONTROLAR ERROR RUNTIME DE SIN MEMORIA
+- LLEVAR CONTROL Y MOSTRAR CUANTA VRAM SE ESTA USANDO EN CADA MOMENTO
+- pyimagecuda EXPONER API DE CONSUMO TOTAL DE VRAM

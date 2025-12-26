@@ -1,0 +1,514 @@
+{
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "61dfcf46178b47539702ad03338ef87e",
+      "type": "EndNode",
+      "name": "Output",
+      "parameters": {},
+      "position": {
+        "x": 312.46260869565214,
+        "y": 247.7314402173913
+      }
+    },
+    {
+      "id": "5b56852d65464981b3a3a469944661d0",
+      "type": "GridNode",
+      "name": "Grid",
+      "parameters": {
+        "size": [
+          1920,
+          1080
+        ],
+        "spacing": 69,
+        "line_width": 10,
+        "color": [
+          1.0,
+          0.3333333432674408,
+          0.49803921580314636,
+          1.0
+        ],
+        "bg_color": [
+          0.0,
+          1.0,
+          0.49803921580314636,
+          1.0
+        ],
+        "offset_x": 40,
+        "offset_y": 20,
+        "hide_node": false
+      },
+      "position": {
+        "x": -445.66217391304355,
+        "y": 379.48760869565206
+      }
+    },
+    {
+      "id": "c02bf98b30df4c2da3719bb3f41968fb",
+      "type": "GaussianBlurNode",
+      "name": "Gaussian Blur",
+      "parameters": {
+        "radius": 21,
+        "sigma": 5.3,
+        "hide_node": false
+      },
+      "position": {
+        "x": -420.4447826086957,
+        "y": 485.57456521739107
+      }
+    },
+    {
+      "id": "6d2360c3851c48a1a5c0643ba7fa6b8d",
+      "type": "SobelNode",
+      "name": "Sobel",
+      "parameters": {
+        "hide_node": false
+      },
+      "position": {
+        "x": -410.8795652173913,
+        "y": 578.618043478261
+      }
+    },
+    {
+      "id": "8c8491b5ec504b7088bb8245d8bd2152",
+      "type": "GaussianBlurNode",
+      "name": "Gaussian Blur 2",
+      "parameters": {
+        "radius": 20,
+        "sigma": 4.2,
+        "hide_node": false
+      },
+      "position": {
+        "x": -362.7491304347826,
+        "y": 685.313695652174
+      }
+    },
+    {
+      "id": "34c45d263acd473490a5bb361515bf8f",
+      "type": "ColorNode",
+      "name": "Color",
+      "parameters": {
+        "size": [
+          1920,
+          200
+        ],
+        "color": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hide_node": false
+      },
+      "position": {
+        "x": -802.0290217391306,
+        "y": 211.435652173913
+      }
+    },
+    {
+      "id": "951371140c324158a4cf62a3d628b5f7",
+      "type": "TextNode",
+      "name": "Text",
+      "parameters": {
+        "size": [
+          319,
+          76
+        ],
+        "text": "Hello",
+        "font": "Courier",
+        "text_size": 102.0,
+        "color": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bg_color": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "align": "Left",
+        "spacing": 0,
+        "letter_spacing": 8.0,
+        "hide_node": false
+      },
+      "position": {
+        "x": -606.5550380434785,
+        "y": 72.79739673913048
+      }
+    },
+    {
+      "id": "9173e57345c44eb6bd8c28a40a34a3fd",
+      "type": "BlendNode",
+      "name": "Blend",
+      "parameters": {
+        "blend_mode": "Normal",
+        "anchor": "Center",
+        "offset_x": 0,
+        "offset_y": 0,
+        "opacity": 1.0
+      },
+      "position": {
+        "x": -86.38771739130443,
+        "y": 164.47576086956508
+      }
+    },
+    {
+      "id": "452d59e85a934749b02f1d290462316e",
+      "type": "BlendNode",
+      "name": "Blend 2",
+      "parameters": {
+        "blend_mode": "Normal",
+        "anchor": "Center",
+        "offset_x": 0,
+        "offset_y": 0,
+        "opacity": 1.0
+      },
+      "position": {
+        "x": 3.719527173912951,
+        "y": 366.1730054347827
+      }
+    },
+    {
+      "id": "d3e2a3e6123140189cddd8d308aa5b42",
+      "type": "DropShadowNode",
+      "name": "Drop Shadow",
+      "parameters": {
+        "offset_x": 0,
+        "offset_y": 0,
+        "blur": 20,
+        "color": [
+          1.0,
+          0.6666666865348816,
+          0.0,
+          1.0
+        ],
+        "expand": true,
+        "hide_node": false
+      },
+      "position": {
+        "x": -491.151847826087,
+        "y": 241.5091304347826
+      }
+    },
+    {
+      "id": "524e52b62f154533af2c7e94a92eb5fe",
+      "type": "OpacityNode",
+      "name": "Opacity",
+      "parameters": {
+        "factor": 0.95,
+        "hide_node": false
+      },
+      "position": {
+        "x": -309.401847826087,
+        "y": 241.80913043478267
+      }
+    },
+    {
+      "id": "fcccf137ba9c48a88ec4c523cbed284a",
+      "type": "StrokeNode",
+      "name": "Stroke",
+      "parameters": {
+        "width": 4,
+        "color": [
+          1.0,
+          1.0,
+          0.0,
+          0.6078431606292725
+        ],
+        "position": "Outside",
+        "expand": true,
+        "hide_node": false
+      },
+      "position": {
+        "x": -378.47947282608703,
+        "y": 136.42888043478263
+      }
+    },
+    {
+      "id": "d28da6734c094b1cba4f07c4c7f6e3e5",
+      "type": "PerlinNode",
+      "name": "Perlin",
+      "parameters": {
+        "size": [
+          1920,
+          1080
+        ],
+        "scale": 44.1,
+        "seed": 0.0,
+        "octaves": 10,
+        "persistence": 0.59,
+        "lacunarity": 1.91,
+        "offset_x": 0.0,
+        "offset_y": 0.0,
+        "color1": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "color2": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "hide_node": false
+      },
+      "position": {
+        "x": -254.81709782608704,
+        "y": 401.8316304347827
+      }
+    },
+    {
+      "id": "4a26ec6a8ff5466b9b4bdd8cee2d970c",
+      "type": "BlendNode",
+      "name": "Blend 3",
+      "parameters": {
+        "blend_mode": "Multiply",
+        "anchor": "Center",
+        "offset_x": 0,
+        "offset_y": 0,
+        "opacity": 1.0
+      },
+      "position": {
+        "x": -135.61959782608685,
+        "y": 512.9216304347825
+      }
+    },
+    {
+      "id": "071efa0ca9ba465f80fabdc1f2096426",
+      "type": "BlendNode",
+      "name": "Blend 4",
+      "parameters": {
+        "blend_mode": "Normal",
+        "anchor": "Center",
+        "offset_x": 0,
+        "offset_y": 0,
+        "opacity": 1.0
+      },
+      "position": {
+        "x": 53.140510923912615,
+        "y": 943.1659841847827
+      }
+    },
+    {
+      "id": "646aaa9c8d47466aaf92d5e655843eee",
+      "type": "NodeSplit",
+      "name": "Split",
+      "parameters": {},
+      "position": {
+        "x": -429.6721828260871,
+        "y": 1077.1138154347825
+      }
+    },
+    {
+      "id": "6854a5f4205a4bc7b031eeaf8eb68a38",
+      "type": "ScaleNode",
+      "name": "Scale",
+      "parameters": {
+        "scale": 0.8,
+        "method": "Lanczos",
+        "hide_node": false
+      },
+      "position": {
+        "x": -240.78683907608723,
+        "y": 781.9663154347822
+      }
+    },
+    {
+      "id": "368c6c3f1960466ca2f3a924f66510d1",
+      "type": "RoundedCornersNode",
+      "name": "Rounded Corners",
+      "parameters": {
+        "radius": 254.0,
+        "hide_node": false
+      },
+      "position": {
+        "x": -62.02336407608739,
+        "y": 723.407452934782
+      }
+    },
+    {
+      "id": "b1bdd27ceef34eb8919f32d6f85145dd",
+      "type": "DropShadowNode",
+      "name": "Drop Shadow 2",
+      "parameters": {
+        "offset_x": 0,
+        "offset_y": 0,
+        "blur": 20,
+        "color": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "expand": true,
+        "hide_node": false
+      },
+      "position": {
+        "x": -35.57336407608739,
+        "y": 810.6924529347825
+      }
+    },
+    {
+      "id": "436ab89b529a4fc4bd42f9b14f4d1617",
+      "type": "GaussianBlurNode",
+      "name": "Gaussian Blur 3",
+      "parameters": {
+        "radius": 39,
+        "sigma": 6.4,
+        "hide_node": false
+      },
+      "position": {
+        "x": -347.16586407608725,
+        "y": 1164.8924529347826
+      }
+    },
+    {
+      "id": "4de68578423e4060ba2602a06c9ce5e7",
+      "type": "SobelNode",
+      "name": "Sobel 2",
+      "parameters": {
+        "hide_node": false
+      },
+      "position": {
+        "x": -160.6933640760874,
+        "y": 1162.2474529347821
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source_id": "5b56852d65464981b3a3a469944661d0",
+      "target_id": "c02bf98b30df4c2da3719bb3f41968fb",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "c02bf98b30df4c2da3719bb3f41968fb",
+      "target_id": "6d2360c3851c48a1a5c0643ba7fa6b8d",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "6d2360c3851c48a1a5c0643ba7fa6b8d",
+      "target_id": "8c8491b5ec504b7088bb8245d8bd2152",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "8c8491b5ec504b7088bb8245d8bd2152",
+      "target_id": "4a26ec6a8ff5466b9b4bdd8cee2d970c",
+      "source_port": 1,
+      "target_port": 2
+    },
+    {
+      "source_id": "34c45d263acd473490a5bb361515bf8f",
+      "target_id": "d3e2a3e6123140189cddd8d308aa5b42",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "951371140c324158a4cf62a3d628b5f7",
+      "target_id": "fcccf137ba9c48a88ec4c523cbed284a",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "9173e57345c44eb6bd8c28a40a34a3fd",
+      "target_id": "452d59e85a934749b02f1d290462316e",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "452d59e85a934749b02f1d290462316e",
+      "target_id": "646aaa9c8d47466aaf92d5e655843eee",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "d3e2a3e6123140189cddd8d308aa5b42",
+      "target_id": "524e52b62f154533af2c7e94a92eb5fe",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "524e52b62f154533af2c7e94a92eb5fe",
+      "target_id": "9173e57345c44eb6bd8c28a40a34a3fd",
+      "source_port": 1,
+      "target_port": 2
+    },
+    {
+      "source_id": "fcccf137ba9c48a88ec4c523cbed284a",
+      "target_id": "9173e57345c44eb6bd8c28a40a34a3fd",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "d28da6734c094b1cba4f07c4c7f6e3e5",
+      "target_id": "4a26ec6a8ff5466b9b4bdd8cee2d970c",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "4a26ec6a8ff5466b9b4bdd8cee2d970c",
+      "target_id": "452d59e85a934749b02f1d290462316e",
+      "source_port": 1,
+      "target_port": 2
+    },
+    {
+      "source_id": "071efa0ca9ba465f80fabdc1f2096426",
+      "target_id": "61dfcf46178b47539702ad03338ef87e",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "646aaa9c8d47466aaf92d5e655843eee",
+      "target_id": "6854a5f4205a4bc7b031eeaf8eb68a38",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "646aaa9c8d47466aaf92d5e655843eee",
+      "target_id": "436ab89b529a4fc4bd42f9b14f4d1617",
+      "source_port": 2,
+      "target_port": 1
+    },
+    {
+      "source_id": "6854a5f4205a4bc7b031eeaf8eb68a38",
+      "target_id": "368c6c3f1960466ca2f3a924f66510d1",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "368c6c3f1960466ca2f3a924f66510d1",
+      "target_id": "b1bdd27ceef34eb8919f32d6f85145dd",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "b1bdd27ceef34eb8919f32d6f85145dd",
+      "target_id": "071efa0ca9ba465f80fabdc1f2096426",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "436ab89b529a4fc4bd42f9b14f4d1617",
+      "target_id": "4de68578423e4060ba2602a06c9ce5e7",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "4de68578423e4060ba2602a06c9ce5e7",
+      "target_id": "071efa0ca9ba465f80fabdc1f2096426",
+      "source_port": 1,
+      "target_port": 2
+    }
+  ],
+  "global_variables": {
+    "variables": []
+  }
+}

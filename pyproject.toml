@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyimagecuda-studio"
+version = "0.1.0"
+description = "Node-based image processing powered by CUDA - Design visually, execute programmatically"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = {text = "MIT"}
+authors = [
+    {name = "Beltrán Offerrall Selma"}
+]
+keywords = ["cuda", "image-processing", "nodes", "gui", "batch-processing", "headless", "pipeline"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+
+dependencies = [
+    "PySide6>=6.10.0",
+    "pyimagecuda>=0.0.9",
+    "PyOpenGL>=3.1.10",
+    "PyOpenGL_accelerate>=3.1.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/offerrall/pyimagecuda-studio"
+
+[project.scripts]
+pyimagecuda-studio = "pyimagecuda_studio.cli:main"
+pics = "pyimagecuda_studio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyimagecuda_studio*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+pyimagecuda_studio = ["icons/*.svg", "icons/*.png"]

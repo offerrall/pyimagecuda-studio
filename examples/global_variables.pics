@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "7ec13af994b9418191ffae5f6535346d",
+      "type": "EndNode",
+      "name": "Output",
+      "parameters": {},
+      "position": {
+        "x": 687.4496589134544,
+        "y": 216.6261198323333
+      }
+    },
+    {
+      "id": "05951880b9e445a28d7294838f954ac7",
+      "type": "TextNode",
+      "name": "Text",
+      "parameters": {
+        "size": [
+          1530,
+          222
+        ],
+        "text": "Hello World",
+        "font": "Arial",
+        "text_size": 305.97,
+        "color": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bg_color": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "align": "Left",
+        "spacing": 0,
+        "letter_spacing": 0.0,
+        "hide_node": false
+      },
+      "position": {
+        "x": 196.39293170050126,
+        "y": 108.15045204240977
+      }
+    },
+    {
+      "id": "a213743b7af14393a999712a7a91867c",
+      "type": "ColorNode",
+      "name": "Color",
+      "parameters": {
+        "size": [
+          1920,
+          1080
+        ],
+        "color": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hide_node": false
+      },
+      "position": {
+        "x": 189.16025314374957,
+        "y": 243.5987959233994
+      }
+    },
+    {
+      "id": "a2d00a73797341bdbe5c07afedbe78ba",
+      "type": "BlendNode",
+      "name": "Blend",
+      "parameters": {
+        "blend_mode": "Normal",
+        "anchor": "Center",
+        "offset_x": -113,
+        "offset_y": -113,
+        "opacity": 1.0
+      },
+      "position": {
+        "x": 482.41249280841606,
+        "y": 133.1360688748253
+      }
+    },
+    {
+      "id": "50e4e0a0ff064f13a82a38ee7e06d3d0",
+      "type": "ContrastNode",
+      "name": "Contrast",
+      "parameters": {
+        "factor": 0.43,
+        "hide_node": false
+      },
+      "position": {
+        "x": 382.47002547875394,
+        "y": 273.18702638283867
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source_id": "05951880b9e445a28d7294838f954ac7",
+      "target_id": "a2d00a73797341bdbe5c07afedbe78ba",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "a213743b7af14393a999712a7a91867c",
+      "target_id": "50e4e0a0ff064f13a82a38ee7e06d3d0",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "a2d00a73797341bdbe5c07afedbe78ba",
+      "target_id": "7ec13af994b9418191ffae5f6535346d",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "50e4e0a0ff064f13a82a38ee7e06d3d0",
+      "target_id": "a2d00a73797341bdbe5c07afedbe78ba",
+      "source_port": 1,
+      "target_port": 2
+    }
+  ],
+  "global_variables": {
+    "variables": [
+      {
+        "name": "Offset blend",
+        "type": "INT",
+        "value": -113,
+        "links": [
+          {
+            "node_id": "a2d00a73797341bdbe5c07afedbe78ba",
+            "param_name": "offset_x"
+          },
+          {
+            "node_id": "a2d00a73797341bdbe5c07afedbe78ba",
+            "param_name": "offset_y"
+          }
+        ]
+      },
+      {
+        "name": "Color",
+        "type": "COLOR",
+        "value": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "links": [
+          {
+            "node_id": "05951880b9e445a28d7294838f954ac7",
+            "param_name": "color"
+          },
+          {
+            "node_id": "a213743b7af14393a999712a7a91867c",
+            "param_name": "color"
+          }
+        ]
+      }
+    ]
+  }
+}

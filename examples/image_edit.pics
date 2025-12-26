@@ -1,0 +1,190 @@
+{
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "89fe1d221ac444a6a7cad7754d6c1e09",
+      "type": "EndNode",
+      "name": "Output",
+      "parameters": {},
+      "position": {
+        "x": 44.07863894139891,
+        "y": 598.0699432892249
+      }
+    },
+    {
+      "id": "29a8accb225641ebb404919421416dfe",
+      "type": "ImageNode",
+      "name": "Image 2",
+      "parameters": {
+        "size": [
+          1920,
+          1080
+        ],
+        "path": "C:/Users/pcmain/Desktop/z21g81rmys991.jpg",
+        "resize_method": "Lanczos",
+        "hide_node": false
+      },
+      "position": {
+        "x": -530.216257088847,
+        "y": 240.17013232514165
+      }
+    },
+    {
+      "id": "5948f333ff6a404fa0849c73bf8d135a",
+      "type": "NodeSplit",
+      "name": "Split",
+      "parameters": {},
+      "position": {
+        "x": -460.34102079395075,
+        "y": 332.41209829867677
+      }
+    },
+    {
+      "id": "991f7701a52e428f832d44ed915fbcd0",
+      "type": "BlendNode",
+      "name": "Blend",
+      "parameters": {
+        "blend_mode": "Normal",
+        "anchor": "Center",
+        "offset_x": 0,
+        "offset_y": 0,
+        "opacity": 1.0
+      },
+      "position": {
+        "x": 54.766729678638825,
+        "y": 498.3194706994327
+      }
+    },
+    {
+      "id": "73db6bcce5bf479ba8fdbdfbfccdfc5f",
+      "type": "ScaleNode",
+      "name": "Scale",
+      "parameters": {
+        "scale": 0.82,
+        "method": "Lanczos",
+        "hide_node": false
+      },
+      "position": {
+        "x": -230.48090737240094,
+        "y": 184.58223062381842
+      }
+    },
+    {
+      "id": "cac71fd8053f4e379004a9a1ed83451b",
+      "type": "GaussianBlurNode",
+      "name": "Gaussian Blur",
+      "parameters": {
+        "radius": 27,
+        "sigma": 5.4,
+        "hide_node": false
+      },
+      "position": {
+        "x": -412.02722117202273,
+        "y": 425.50661625708875
+      }
+    },
+    {
+      "id": "5056f9aa7cc04891aea16f1923a8c7a2",
+      "type": "SobelNode",
+      "name": "Sobel",
+      "parameters": {
+        "hide_node": false
+      },
+      "position": {
+        "x": -361.1274102079396,
+        "y": 516.6767485822305
+      }
+    },
+    {
+      "id": "a4919101c85c4b8eabefd4c50815c8ce",
+      "type": "RoundedCornersNode",
+      "name": "Rounded Corners",
+      "parameters": {
+        "radius": 222.0,
+        "hide_node": false
+      },
+      "position": {
+        "x": -182.9251417769378,
+        "y": 275.4612476370509
+      }
+    },
+    {
+      "id": "08a686076d60417eb088006d35df8100",
+      "type": "DropShadowNode",
+      "name": "Drop Shadow",
+      "parameters": {
+        "offset_x": 0,
+        "offset_y": 0,
+        "blur": 44,
+        "color": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "expand": true,
+        "hide_node": false
+      },
+      "position": {
+        "x": -123.46458676485497,
+        "y": 370.6053981987294
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source_id": "29a8accb225641ebb404919421416dfe",
+      "target_id": "5948f333ff6a404fa0849c73bf8d135a",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "5948f333ff6a404fa0849c73bf8d135a",
+      "target_id": "73db6bcce5bf479ba8fdbdfbfccdfc5f",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "5948f333ff6a404fa0849c73bf8d135a",
+      "target_id": "cac71fd8053f4e379004a9a1ed83451b",
+      "source_port": 2,
+      "target_port": 1
+    },
+    {
+      "source_id": "991f7701a52e428f832d44ed915fbcd0",
+      "target_id": "89fe1d221ac444a6a7cad7754d6c1e09",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "73db6bcce5bf479ba8fdbdfbfccdfc5f",
+      "target_id": "a4919101c85c4b8eabefd4c50815c8ce",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "cac71fd8053f4e379004a9a1ed83451b",
+      "target_id": "5056f9aa7cc04891aea16f1923a8c7a2",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "5056f9aa7cc04891aea16f1923a8c7a2",
+      "target_id": "991f7701a52e428f832d44ed915fbcd0",
+      "source_port": 1,
+      "target_port": 2
+    },
+    {
+      "source_id": "a4919101c85c4b8eabefd4c50815c8ce",
+      "target_id": "08a686076d60417eb088006d35df8100",
+      "source_port": 1,
+      "target_port": 1
+    },
+    {
+      "source_id": "08a686076d60417eb088006d35df8100",
+      "target_id": "991f7701a52e428f832d44ed915fbcd0",
+      "source_port": 1,
+      "target_port": 1
+    }
+  ]
+}
