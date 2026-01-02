@@ -46,17 +46,18 @@ class PreviewWidget(QWidget):
         self.info_label.move(x, y)
 
     def update_preview(self, image: Image) -> None:
-        max_w, max_h = self.u8_buffer.get_max_capacity()
+        max_pixels = self.u8_buffer.get_max_capacity()
 
-        if image.width > max_h or image.height > max_h:
+        if image.width * image.height > max_pixels:
             self.alloc_preview_buffer(image.width, image.height)
 
+        self.u8_buffer.resize(image.width, image.height)
         convert_float_to_u8(self.u8_buffer, image)
         self._gl_widget.display(self.u8_buffer)
         
         self.info_label.setText(f"{image.width} × {image.height}")
         self._position_info_label()
-
+        
     def alloc_preview_buffer(self, width: int, height: int) -> None:
         if self.u8_buffer:
             print(f"[GUI] Freeing U8 buffer ({self.u8_buffer.width}x{self.u8_buffer.height}) for preview")
