@@ -1,20 +1,18 @@
 from pyimagecuda import Image
 from pyimagecuda.image import ImageBase
 
-
 def ensure_buffer(buffer: Image | None, width: int, height: int, node_name: str = "Node") -> Image:
     if buffer is None:
         print(f"[BUFFER] Creating buffer for {node_name}: {width}x{height}")
         return Image(width, height)
     
-    max_w, max_h = buffer.get_max_capacity()
+    max_pixels = buffer.get_max_capacity()
     
-    if width <= max_w and height <= max_h:
-        buffer.width = width
-        buffer.height = height
+    if width * height <= max_pixels:
+        buffer.resize(width, height)
         return buffer
 
-    print(f"[BUFFER] Recreating buffer for {node_name}: {width}x{height} (exceeded capacity {max_w}x{max_h})")
+    print(f"[BUFFER] Recreating buffer for {node_name}: {width}x{height} (exceeded capacity {max_pixels} pixels)")
     buffer.free()
     return Image(width, height)
 
@@ -25,16 +23,15 @@ def resize_buffers(buffers: list[ImageBase], new_size: tuple[int, int]) -> list[
     if not buffers:
         return buffers
     
-    max_width, max_height = buffers[0].get_max_capacity()
+    max_pixels = buffers[0].get_max_capacity()
     
-    if new_width <= max_width and new_height <= max_height:
+    if new_width * new_height <= max_pixels:
         print(f"[BUFFER] Reusing buffers, resizing to {new_width}x{new_height}")
         for buffer in buffers:
-            buffer.width = new_width
-            buffer.height = new_height
+            buffer.resize(new_width, new_height)
         return buffers
     else:
-        print(f"[BUFFER] Creating new buffers {new_width}x{new_height} (exceeded capacity {max_width}x{max_height})")
+        print(f"[BUFFER] Creating new buffers {new_width}x{new_height} (exceeded capacity {max_pixels} pixels)")
         new_buffers = []
         for buffer in buffers:
             BufferClass = type(buffer)
