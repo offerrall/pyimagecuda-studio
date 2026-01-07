@@ -1,4 +1,4 @@
-# PyImageCUDA Studio 0.1.2 Beta
+# PyImageCUDA Studio 0.1.3 Beta
 
 [![PyPI version](https://img.shields.io/pypi/v/pyimagecuda-studio.svg)](https://pypi.org/project/pyimagecuda-studio/)
 [![Version](https://img.shields.io/badge/version-0.1.0%20beta-blue.svg)](https://github.com/offerrall/pyimagecuda-studio)
@@ -119,6 +119,7 @@ pics
 - **Flip** — Horizontal/vertical/both
 - **Rotate** — Arbitrary angles with optional expand
 - **Crop** — Extract rectangular region
+- **Zoom** — Zoom in/out with offset
 
 ### Merge (2 nodes)
 - **Blend** — Composite two images with Photoshop-style blend modes

@@ -11,7 +11,7 @@ from .filters.inplace import SepiaNode, InvertNode, ThresholdNode, SolarizeNode
 from .filters.buffered import SharpenNode, SobelNode, EmbossNode
 from .adjust.adjust import BrightnessNode, ContrastNode, SaturationNode, GammaNode, OpacityNode
 from .node_split import NodeSplit
-from .transform.transform import ResizeNode, FlipNode, RotateNode, CropNode, ScaleNode, AspectResizeNode
+from .transform.transform import ResizeNode, FlipNode, RotateNode, CropNode, ScaleNode, AspectResizeNode, ZoomNode
 
 
 def node_class_to_name(node_class) -> str:
@@ -79,6 +79,7 @@ def get_all_node_classes() -> list[type]:
         FlipNode,
         RotateNode,
         CropNode,
+        ZoomNode,
     ]
     
     merge = [

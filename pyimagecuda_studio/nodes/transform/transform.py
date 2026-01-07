@@ -2,29 +2,24 @@ from dataclasses import dataclass
 from typing import Annotated
 import math
 
-from pyimagecuda import Image, Resize, Transform
+from pyimagecuda import Image, Transform
 
 from ..constraints import INT, DROPDOWN, CHECKBOX, FLOAT, SIZE
 from ..node_in_out import NodeInputOutput
 from ..buffers import ensure_buffer
+from ..utils import resize_methods, get_resize_function
 
 
 @dataclass
 class ResizeNode(NodeInputOutput):
     size: Annotated[tuple[int, int], SIZE(min_width=1, min_height=1)] = (1920, 1080)
-    method: Annotated[str, DROPDOWN(options=['Nearest', 'Bilinear', 'Bicubic', 'Lanczos'])] = 'Lanczos'
+    method: resize_methods = 'Lanczos'
     
     def __post_init__(self):
         self.dst_buffer = None
     
     def apply_process(self, input_image: Image) -> Image:
-        resize_methods = {
-            'Nearest': Resize.nearest,
-            'Bilinear': Resize.bilinear,
-            'Bicubic': Resize.bicubic,
-            'Lanczos': Resize.lanczos
-        }
-        method = resize_methods.get(self.method, Resize.lanczos)
+        method = get_resize_function(self.method)
         self.dst_buffer = ensure_buffer(self.dst_buffer, self.size[0], self.size[1], self.name)
         
         print(f"[RESIZE] {self.name} resizing to {self.size[0]}x{self.size[1]} using {self.method}")
@@ -53,11 +48,11 @@ class FlipNode(NodeInputOutput):
         
         return self.dst_buffer
 
-
 @dataclass
 class RotateNode(NodeInputOutput):
     angle: Annotated[float, FLOAT(min_value=0.0, max_value=360.0)] = 0.0
     expand: Annotated[bool, CHECKBOX()] = True
+    method: resize_methods = 'Bilinear'
     
     def __post_init__(self):
         self.dst_buffer = None
@@ -89,8 +84,16 @@ class RotateNode(NodeInputOutput):
         
         self.dst_buffer = ensure_buffer(self.dst_buffer, final_w, final_h, self.name)
         
-        print(f"[ROTATE] {self.name} rotating {self.angle}° (expand={self.expand}, output={final_w}x{final_h})")
-        Transform.rotate(input_image, angle=self.angle, expand=self.expand, dst_buffer=self.dst_buffer)
+        interpolation = self.method.lower()
+        
+        print(f"[ROTATE] {self.name} rotating {self.angle}° (expand={self.expand}, output={final_w}x{final_h}, method={self.method})")
+        Transform.rotate(
+            input_image, 
+            angle=self.angle, 
+            expand=self.expand, 
+            interpolation=interpolation,
+            dst_buffer=self.dst_buffer
+        )
         
         return self.dst_buffer
 
@@ -113,10 +116,11 @@ class CropNode(NodeInputOutput):
         
         return self.dst_buffer
 
+
 @dataclass
 class ScaleNode(NodeInputOutput):
     scale: Annotated[float, FLOAT(min_value=0.01, max_value=10.0)] = 1.0
-    method: Annotated[str, DROPDOWN(options=['Nearest', 'Bilinear', 'Bicubic', 'Lanczos'])] = 'Lanczos'
+    method: resize_methods = 'Lanczos'
     
     def __post_init__(self):
         self.dst_buffer = None
@@ -128,13 +132,7 @@ class ScaleNode(NodeInputOutput):
         new_width = max(1, new_width)
         new_height = max(1, new_height)
         
-        resize_methods = {
-            'Nearest': Resize.nearest,
-            'Bilinear': Resize.bilinear,
-            'Bicubic': Resize.bicubic,
-            'Lanczos': Resize.lanczos
-        }
-        method = resize_methods.get(self.method, Resize.lanczos)
+        method = get_resize_function(self.method)
         self.dst_buffer = ensure_buffer(self.dst_buffer, new_width, new_height, self.name)
         
         print(f"[SCALE] {self.name} scaling by {self.scale}x ({input_image.width}x{input_image.height} → {new_width}x{new_height}) using {self.method}")
@@ -148,10 +146,40 @@ class ScaleNode(NodeInputOutput):
         return self.dst_buffer
 
 @dataclass
+class ZoomNode(NodeInputOutput):
+    zoom_factor: Annotated[float, FLOAT(min_value=0.1, max_value=100.0)] = 2.0
+    offset_x: Annotated[int, INT(min_value=-10000, max_value=10000)] = 0
+    offset_y: Annotated[int, INT(min_value=-10000, max_value=10000)] = 0
+    method: resize_methods = 'Bilinear'
+    
+    def __post_init__(self):
+        self.dst_buffer = None
+    
+    def apply_process(self, input_image: Image) -> Image:
+        self.dst_buffer = ensure_buffer(self.dst_buffer, input_image.width, input_image.height, self.name)
+        
+        interpolation = self.method.lower()
+
+        center_x = (input_image.width / 2.0) + self.offset_x
+        center_y = (input_image.height / 2.0) + self.offset_y
+        
+        print(f"[ZOOM] {self.name} zooming by {self.zoom_factor}x at center+offset ({center_x:.1f}, {center_y:.1f}) using {self.method}")
+        Transform.zoom(
+            input_image,
+            zoom_factor=self.zoom_factor,
+            center_x=center_x,
+            center_y=center_y,
+            interpolation=interpolation,
+            dst_buffer=self.dst_buffer
+        )
+        
+        return self.dst_buffer
+
+@dataclass
 class AspectResizeNode(NodeInputOutput):
     mode: Annotated[str, DROPDOWN(options=['Width', 'Height', 'Max', 'Min'])] = 'Width'
     value: Annotated[int, INT(min_value=1, max_value=7680)] = 1920
-    method: Annotated[str, DROPDOWN(options=['Nearest', 'Bilinear', 'Bicubic', 'Lanczos'])] = 'Lanczos'
+    method: resize_methods = 'Lanczos'
     
     def __post_init__(self):
         self.dst_buffer = None
@@ -183,13 +211,7 @@ class AspectResizeNode(NodeInputOutput):
         new_width = max(1, new_width)
         new_height = max(1, new_height)
         
-        resize_methods = {
-            'Nearest': Resize.nearest,
-            'Bilinear': Resize.bilinear,
-            'Bicubic': Resize.bicubic,
-            'Lanczos': Resize.lanczos
-        }
-        method = resize_methods.get(self.method, Resize.lanczos)
+        method = get_resize_function(self.method)
         self.dst_buffer = ensure_buffer(self.dst_buffer, new_width, new_height, self.name)
         
         print(f"[ASPECT-RESIZE] {self.name} resizing mode={self.mode}, value={self.value} "

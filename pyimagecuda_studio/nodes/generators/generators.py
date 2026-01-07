@@ -1,16 +1,17 @@
 from dataclasses import dataclass
 from typing import Annotated
 from os.path import exists
-from pyimagecuda import Fill, load, copy, Resize, Text, Image
+from pyimagecuda import Fill, load, copy, Image, Text
 
 from ..constraints import COLOR, FLOAT, INT, CHECKBOX, DROPDOWN, IMAGE_PATH, TEXT, FONT
 from ..node_generator import NodeGenerator
 from ..buffers import resize_buffers
+from ..utils import resize_methods, get_resize_function
 
 @dataclass
 class ImageNode(NodeGenerator):
     path: Annotated[str, IMAGE_PATH()] = ""
-    resize_method: Annotated[str, DROPDOWN(options=['Nearest', 'Bilinear', 'Bicubic', 'Lanczos'])] = 'Lanczos'
+    resize_method: resize_methods = 'Lanczos'
     
     def __post_init__(self):
         super().__post_init__()
@@ -53,13 +54,7 @@ class ImageNode(NodeGenerator):
             print(f"[LOAD_IMAGE] {self.name} copied original image to image buffer")
             return
         
-        resize_methods = {
-            'Nearest': Resize.nearest,
-            'Bilinear': Resize.bilinear,
-            'Bicubic': Resize.bicubic,
-            'Lanczos': Resize.lanczos
-        }
-        method = resize_methods.get(self.resize_method, Resize.lanczos)
+        method = get_resize_function(self.resize_method)
         print(f"[LOAD_IMAGE] {self.name} resizing original image to ({self.image.width}x{self.image.height}) using {self.resize_method} method")
         method(
             self.original_image,
