@@ -1,4 +1,4 @@
-# PyImageCUDA Studio 0.1.3 Beta
+# PyImageCUDA Studio 0.1.4 Beta
 
 [![PyPI version](https://img.shields.io/pypi/v/pyimagecuda-studio.svg)](https://pypi.org/project/pyimagecuda-studio/)
 [![Version](https://img.shields.io/badge/version-0.1.0%20beta-blue.svg)](https://github.com/offerrall/pyimagecuda-studio)
@@ -89,11 +89,12 @@ pics
 - **Noise** — White noise (RGB or monochrome)
 - **Perlin** — Organic noise textures
 
-### Effects (4 nodes)
+### Effects (5 nodes)
 - **Rounded Corners** — Smooth corner radius
 - **Drop Shadow** — Blur, offset, color control
 - **Stroke** — Inside/outside outline
 - **Vignette** — Edge darkening
+- **Chroma Key** — Background removal by color
 
 ### Filters (8 nodes)
 - **Gaussian Blur** — Fast separable blur
@@ -105,14 +106,16 @@ pics
 - **Sobel** — Edge detection
 - **Emboss** — 3D relief
 
-### Adjust (5 nodes)
+### Adjust (7 nodes)
 - **Brightness** — Linear adjustment
 - **Contrast** — Midpoint scaling
 - **Saturation** — Color intensity
+- **Hue** — Color rotation
 - **Gamma** — Non-linear correction
 - **Opacity** — Alpha blending
+- **Vibrance** — Smart saturation boost
 
-### Transform (6 nodes)
+### Transform (7 nodes)
 - **Resize** — Scale to exact dimensions (Nearest/Bilinear/Bicubic/Lanczos)
 - **Aspect Resize** — Maintain ratio while resizing
 - **Scale** — Percentage-based scaling

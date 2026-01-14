@@ -6,10 +6,10 @@ from .merge.blend import BlendNode
 from .merge.mask import MaskNode
 from .logic.logic import RandomOutNode, ConditionalNode
 from .effects.buffered import DropShadowNode, StrokeNode, GaussianBlurNode
-from .effects.inplace import RoundedCornersNode, VignetteNode
+from .effects.inplace import RoundedCornersNode, VignetteNode, ChromaKeyNode
 from .filters.inplace import SepiaNode, InvertNode, ThresholdNode, SolarizeNode
 from .filters.buffered import SharpenNode, SobelNode, EmbossNode
-from .adjust.adjust import BrightnessNode, ContrastNode, SaturationNode, GammaNode, OpacityNode
+from .adjust.adjust import BrightnessNode, ContrastNode, SaturationNode, GammaNode, OpacityNode, HueNode, VibranceNode
 from .node_split import NodeSplit
 from .transform.transform import ResizeNode, FlipNode, RotateNode, CropNode, ScaleNode, AspectResizeNode, ZoomNode
 
@@ -51,6 +51,7 @@ def get_all_node_classes() -> list[type]:
         DropShadowNode,
         StrokeNode,
         VignetteNode,
+        ChromaKeyNode,
     ]
     
     filters = [
@@ -67,9 +68,11 @@ def get_all_node_classes() -> list[type]:
     adjust = [
         BrightnessNode,
         ContrastNode,
+        HueNode,
         SaturationNode,
         GammaNode,
         OpacityNode,
+        VibranceNode,
     ]
 
     transform = [

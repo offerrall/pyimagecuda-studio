@@ -55,3 +55,21 @@ class OpacityNode(NodeInputOutput):
         print(f"[OPACITY] {self.name} adjusting opacity (factor={self.factor})")
         Adjust.opacity(input_image, self.factor)
         return input_image
+
+@dataclass
+class HueNode(NodeInputOutput):
+    degrees: Annotated[float, FLOAT(min_value=-360.0, max_value=360.0)] = 0.0
+    
+    def apply_process(self, input_image: Image) -> Image:
+        print(f"[HUE] {self.name} adjusting hue (degrees={self.degrees})")
+        Adjust.hue(input_image, self.degrees)
+        return input_image
+
+@dataclass
+class VibranceNode(NodeInputOutput):
+    amount: Annotated[float, FLOAT(min_value=-1.0, max_value=1.0)] = 0.0
+    
+    def apply_process(self, input_image: Image) -> Image:
+        print(f"[VIBRANCE] {self.name} adjusting vibrance (amount={self.amount})")
+        Adjust.vibrance(input_image, self.amount)
+        return input_image
