@@ -1,4 +1,4 @@
-# PyImageCUDA Studio 0.1.4 Beta
+# PyImageCUDA Studio 0.1.5 Beta
 
 [![PyPI version](https://img.shields.io/pypi/v/pyimagecuda-studio.svg)](https://pypi.org/project/pyimagecuda-studio/)
 [![Version](https://img.shields.io/badge/version-0.1.0%20beta-blue.svg)](https://github.com/offerrall/pyimagecuda-studio)
