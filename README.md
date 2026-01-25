@@ -58,6 +58,13 @@ with LoadProject("sign.pics"):
 - **NVIDIA GPU** (GTX 900 series or newer)
 - **OS**: Windows 10/11 or [Linux](https://github.com/offerrall/pyimagecuda?tab=readme-ov-file#linux-compatibility--troubleshooting)
 
+**Linux users:** Some distributions (especially with Wayland compositors) may experience OpenGL context errors. If you encounter `QEGL Error 3009` or similar OpenGL issues, run with:
+```bash
+QT_QPA_PLATFORM="xcb" pics
+```
+
+For installation issues or other Linux-specific problems, see the [Linux compatibility guide](https://github.com/offerrall/pyimagecuda?tab=readme-ov-file#linux-compatibility--troubleshooting).
+
 ### Install via pip
 ```bash
 pip install pyimagecuda-studio
